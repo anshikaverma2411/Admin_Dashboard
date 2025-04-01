@@ -11,6 +11,10 @@ const initialState = {
 
 export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
+  const [isClicked, setIsClicked] = useState(initialState);
+
+  const handleClick = (clicked) =>
+    setIsClicked({ ...initialState, [clicked]: true });
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
@@ -21,10 +25,10 @@ export const ContextProvider = ({ children }) => {
         activeMenu,
         // screenSize,
         // setScreenSize,
-        // handleClick,
-        // isClicked,
+        handleClick,
+        isClicked,
         // initialState,
-        // setIsClicked,
+        setIsClicked,
         setActiveMenu,
         //setCurrentColor,
         // setCurrentMode,
